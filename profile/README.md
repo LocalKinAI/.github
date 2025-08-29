@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="[此处替换为你的Logo图片链接]" alt="LocalKin Logo" width="150"/>
+  <img src="https://avatars.githubusercontent.com/u/228881863?…00&u=9171c2a3f983dba4c8bd41419d3c5855f93daf7f&v=4" alt="LocalKin Logo" width="150"/>
 </p>
 
 <h1 align="center">Welcome to the LocalKinAI Ecosystem</h1>
@@ -33,7 +33,7 @@ Our ecosystem is a collection of powerful, standalone tools that come together i
 
 | Project | Status | Description |
 | :--- | :--- | :--- |
-| ⭐️ **[ollamadiffuser]([链接到你的ollamadiffuser仓库])** | ✅ **Active & Released** | An Ollama-like server for running text-to-image models locally. The creative hand of our ecosystem. |
+| ⭐️ **[ollamadiffuser](https://github.com/ollamadiffuser/ollamadiffuser)** | ✅ **Active & Released** | An Ollama-like server for running text-to-image models locally. The creative hand of our ecosystem. |
 | 🎧 **localkin-service-audio** | 🛠️ **In Active Development** | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Coming Soon!* |
 | 🧠 **localkin (Orchestrator)** | 🛠️ **In Active Development** | The nervous system that brings it all together. The core AI companion application. *Coming Soon!* |
 | 🌐 **localkin-service-browser** | 📝 **Planned** | The digital hands of the companion, allowing it to browse the web and automate tasks. *Future!* |
