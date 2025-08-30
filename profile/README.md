@@ -14,8 +14,8 @@
     <a href="https://discord.gg/w8KGyBpc">
         <img src="https://img.shields.io/discord/1411172922185482394?style=for-the-badge&logo=discord&logoColor=white&color=5865F2" alt="Join our Discord">
     </a>
-    <a href="[你的Twitter链接]">
-        <img src="https://img.shields.io/twitter/follow/YOUR_TWITTER_HANDLE?style=for-the-badge&logo=x&color=000000" alt="Follow us on X">
+    <a href="https://x.com/LocalKinAI">
+        <img src="https://img.shields.io/twitter/follow/LocalKinAI?style=for-the-badge&logo=x&color=000000" alt="Follow us on X">
     </a>
 </p>
 
@@ -43,7 +43,7 @@ Our ecosystem is a collection of powerful, standalone tools that come together i
 This is an ambitious project, and we're building it in the open. The best way to stay updated and get involved is to join our community.
 
 - **💬 Join our [Discord Server](https://discord.gg/w8KGyBpc)** to chat with the developers and other users.
-- **🐦 Follow us on [X (Twitter)]([你的Twitter链接])** for the latest news and demos.
+- **🐦 Follow us on [X (Twitter)](https://x.com/LocalKinAI)** for the latest news and demos.
 - **⭐ Star our repositories** to show your support!
 
 We are excited to build the future of local AI with you.
