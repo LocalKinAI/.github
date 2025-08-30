@@ -33,9 +33,9 @@ Our ecosystem is a collection of powerful, standalone tools that come together i
 
 | Project | Status | Description |
 | :--- | :--- | :--- |
-| ⭐️ **[ollamadiffuser](https://github.com/ollamadiffuser/ollamadiffuser)** | ✅ **Active & Released** | An Ollama-like server for running text-to-image models locally. The creative hand of our ecosystem. |
-| 🎧 **localkin-service-audio** | 🛠️ **In Active Development** | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Coming Soon!* |
-| 🧠 **localkin (Orchestrator)** | 🛠️ **In Active Development** | The nervous system that brings it all together. The core AI companion application. *Coming Soon!* |
+| ⭐️ **[ollamadiffuser](https://github.com/ollamadiffuser/ollamadiffuser)** | ![Status](https://img.shields.io/badge/status-released-green?style=flat-square) | An Ollama-like server for running text-to-image models locally. The creative hand of our ecosystem. |
+| 🎧 **localkin-service-audio** | ![Status](https://img.shields.io/badge/status-in%20development-blue?style=flat-square) | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Coming Soon!* |
+| 🧠 **localkin (Orchestrator)** | ![Status](https://img.shields.io/badge/status-in%20development-blue?style=flat-square) | The nervous system that brings it all together. The core AI companion application. *Coming Soon!* |
 | 🌐 **localkin-service-browser** | 📝 **Planned** | The digital hands of the companion, allowing it to browse the web and automate tasks. *Future!* |
 
 ### 👋 Join Our Journey
