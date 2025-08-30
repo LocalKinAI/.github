@@ -6,8 +6,6 @@
 
 <p align="center">
   <strong>Building the future of private, personalized, and powerful local AI companions.</strong>
-  <br />
-  <em>在这里，我们构建一个完全属于你的、运行在你本地的、强大的开源AI伴侣。</em>
 </p>
 
 <p align="center">
@@ -28,8 +26,6 @@
 ### 🚀 Our Vision
 
 We believe the future of AI is not in a distant cloud, but right here, on your own machine. Our mission is to build a suite of open-source tools and a flagship AI companion, **LocalKin**, that gives you full control over your data and your digital life. Privacy, power, and personalization are at the core of everything we do.
-
-*我们相信AI的未来不在遥远的云端，而是在你的个人设备上。我们的使命是构建一套开源工具和一个旗舰AI伴侣**LocalKin**，让你完全掌控自己的数据和数字生活。隐私、强大和个性化是我们一切工作的核心。*
 
 ### 🤖 Our Projects / The Ecosystem
 
