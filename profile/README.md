@@ -11,6 +11,10 @@
 </p>
 
 <p align="center">
+  <image src="https://github.com/LocalKinAI/.github/blob/main/profile/localkin_flow.png" alt="LocalKin Flow">
+</p>
+    
+<p align="center">
     <a href="https://discord.gg/w8KGyBpc">
         <img src="https://img.shields.io/discord/1411172922185482394?style=for-the-badge&logo=discord&logoColor=white&color=5865F2" alt="Join our Discord">
     </a>
