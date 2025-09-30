@@ -33,7 +33,7 @@ Our ecosystem is a collection of powerful, standalone tools that come together i
 
 | Project | Status | Description |
 | :--- | :--- | :--- |
-| 🎧 **localkin-service-audio** | ![Status](https://img.shields.io/badge/status-in%20development-blue?style=flat-square) | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Coming Soon!* |
+| 🎧 **<a href="https://github.com/LocalKinAI/localkin-service-audio">localkin-service-audio</a>** | ![Status](https://img.shields.io/badge/status-%20ready-green?style=flat-square) | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Ready!* |
 | 🧠 **localkin (Orchestrator)** | ![Status](https://img.shields.io/badge/status-in%20development-blue?style=flat-square) | The nervous system that brings it all together. The core AI companion application. *Coming Soon!* |
 | 🌐 **localkin-service-browser** | ![Status](https://img.shields.io/badge/status-planned-grey?style=flat-square) | The digital hands of the companion, allowing it to browse the web and automate tasks. *Future!* |
 
