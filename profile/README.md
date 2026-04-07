@@ -21,29 +21,38 @@
     </a>
 </p>
 
----
+LocalKin — Private AI Agent Swarm on Your Machine
+75+ specialized AI agents running on a single Mac Mini. Self-evolving. Zero cloud dependency.
 
-### 🚀 Our Vision
+What is LocalKin
+LocalKin is a Go-based AI agent runtime that orchestrates 75+ domain-expert agents through structured multi-round debates, autonomous scheduling, and self-improvement cycles — all from a single 23MB binary.
 
-We believe the future of AI is not in a distant cloud, but right here, on your own machine. Our mission is to build a suite of open-source tools and a flagship AI companion, **LocalKin**, that gives you full control over your data and your digital life. Privacy, power, and personalization are at the core of everything we do.
+Core Innovations
+Thin Soul + Fat Skill — Agent identity defined in 30-line YAML soul files. Skill logic runs as subprocesses, never sent to the LLM. Token-efficient and injection-resistant.
 
-### 🤖 Our Projects / The Ecosystem
+Zero-Token Heartbeat — Tri-chamber autonomous scheduling (pulse/schedule/idle) coordinates 75+ agents via MQTT without burning tokens. Agents wake on schedule, catch up after restarts, and roll back silent wakeups with zero memory pollution.
 
-Our ecosystem is a collection of powerful, standalone tools that come together in our flagship application, **LocalKin**.
+Conductor-Driven Swarm Debates — Domain experts debate independently, then update positions after seeing others' arguments. Consensus inertia detection prevents false agreement. Cascade amplification guards catch herding behavior.
 
-| Project | Status | Description |
-| :--- | :--- | :--- |
-| 🚀 **<a href="https://www.ollamadiffuser.com/">ollamadiffuser</a>** | ![Status](https://img.shields.io/badge/status-%20ready-green?style=flat-square) | Get up and running with AI image generation. *Ready!* |
-| 🎧 **<a href="https://github.com/LocalKinAI/localkin-service-audio">localkin-service-audio</a>** | ![Status](https://img.shields.io/badge/status-%20ready-green?style=flat-square) | The ears and vocal cords of the companion. Provides high-performance, local STT and TTS services. *Ready!* |
-| 🧠 **localkin (Orchestrator)** | ![Status](https://img.shields.io/badge/status-in%20development-blue?style=flat-square) | The nervous system that brings it all together. The core AI companion application. *Coming Soon!* |
-| 🌐 **localkin-service-browser** | ![Status](https://img.shields.io/badge/status-planned-grey?style=flat-square) | The digital hands of the companion, allowing it to browse the web and automate tasks. *Future!* |
+Self-Evolving Architecture — SAGE four-step improvement loop (Challenger → Planner → Solver → Critic) with experiential reflective learning. 29+ autonomous improvement cycles, 68+ auto-fixes.
 
-### 👋 Join Our Journey
+Genesis Protocol — Bare binary + soul file self-bootstraps: hardware probing → skill forging → self-testing → checkpoint resume.
 
-This is an ambitious project, and we're building it in the open. The best way to stay updated and get involved is to join our community.
+Project	Description	Status
+ollamadiffuser	Local AI image generation, zero cloud dependency	✅ 20K+ downloads
+localkin-service-audio	High-performance local STT & TTS services	✅ 10K+ downloads
+localkin	AI agent runtime — single binary, soul-file configured	✅ Ready
+kin-code	AI coding assistant, 9MB single binary	✅ Ready
 
-- **💬 Join our [Discord Server](https://discord.gg/w8KGyBpc)** to chat with the developers and other users.
-- **🐦 Follow us on [X (Twitter)](https://x.com/LocalKinAI)** for the latest news and demos.
-- **⭐ Star our repositories** to show your support!
+Domains
+Spiritual (8 masters) · Traditional Chinese Medicine (11 physicians) · Engineering · Quantitative Finance · Marketing · Product · Design · Game Dev · Spatial Computing · and more.
 
-We are excited to build the future of local AI with you.
+Research Papers
+Self-Evolving Swarms
+Zero-Token Heartbeat
+Genesis Protocol
+Thin Soul, Fat Skill
+Domain Expert Debate
+Grep Is All You Need
+Try It
+🌐 localkin.dev · 📺 YouTube @localkinai · 💬 Discord · 𝕏 @LocalKinAI
