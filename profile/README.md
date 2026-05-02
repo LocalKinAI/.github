@@ -34,7 +34,6 @@ LocalKin is a Go-based AI agent runtime that orchestrates 75+ domain-expert agen
 |---------|-------------|-|
 | **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | 20K+ downloads |
 | **[localkin-service-audio](https://github.com/LocalKinAI/localkin-service-audio)** | High-performance local STT & TTS services | 10K+ downloads |
-| **[localkin](https://github.com/LocalKinAI/localkin)** | AI agent runtime — single binary, soul-file configured | Apache-2.0 |
 | **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. | MIT · v1.8.0 |
 | **[kin-code](https://github.com/LocalKinAI/kin-code)** | AI coding assistant, 9MB single binary | MIT |
 
@@ -50,6 +49,9 @@ Spiritual (8 masters) · Traditional Chinese Medicine (11 physicians) · Enginee
 - [Thin Soul, Fat Skill](https://www.localkin.dev/papers/thin-soul-fat-skill)
 - [Domain Expert Debate](https://www.localkin.dev/papers/domain-expert-debate)
 - [Grep Is All You Need](https://www.localkin.dev/papers/grep-is-all-you-need)
+- [Knowledge Compile](https://www.localkin.dev/papers/knowledge-compile)
+- [Autonomous Swarm Genesis](https://www.localkin.dev/papers/autonomous-swarm-genesis)
+- [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib)
 
 ## Contact
 
