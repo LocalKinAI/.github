@@ -3,7 +3,10 @@
   <p>75+ specialized AI agents running on a single Mac Mini. Self-evolving. Zero cloud dependency.</p>
   <p>
     <a href="https://www.localkin.ai"><b>localkin.ai</b> · apps</a> · 
-    <a href="https://www.localkin.dev"><b>localkin.dev</b> · for developers</a> · 
+    <a href="https://api.localkin.dev"><b>api.localkin.dev</b> · chat</a> · 
+    <a href="https://www.localkin.dev"><b>localkin.dev</b> · for developers</a>
+  </p>
+  <p>
     <a href="https://www.localkin.dev/papers">papers</a> · 
     <a href="https://youtube.com/@localkinai">YouTube</a> · 
     <a href="https://discord.gg/w8KGyBpc">Discord</a> · 
@@ -13,9 +16,9 @@
 
 ---
 
-## Two surfaces
+## Surfaces
 
-### [localkin.ai](https://www.localkin.ai) — apps for everyone
+### [localkin.ai](https://www.localkin.ai) — knowledge-grounded apps
 
 Direct chat with AI distilled from real human writings. Every answer grounded in actual source texts under enforced retrieval — zero hallucination. Three standalone properties:
 
@@ -23,9 +26,20 @@ Direct chat with AI distilled from real human writings. Every answer grounded in
 - **[细拉 · Selah](https://faith.localkin.ai)** — converse with **44 spiritual masters** spanning 19 centuries (Augustine, John Chrysostom, Brother Lawrence, Spurgeon, 倪柝声, 钟马田 …). Every reply cites the source work + page.
 - **[岐黄 · Yellow Emperor's Way](https://heal.localkin.ai)** — converse with **39 TCM masters** spanning 4,500 years (黄帝 → 当代国医大师). 498 books, 159 MB corpus, enforced citation.
 
+### [api.localkin.dev](https://api.localkin.dev) — multi-agent chat hub
+
+Specialist conversational agents — language tutoring, citizenship prep, spiritual companion, TCM diagnosis. 7-day free trial, [Pro upgrade](https://localkin.dev/pricing) for continued use.
+
+- 🕊️ **Madame Guyon** — spiritual companion & inner way guide
+- 🎓 **English Tutor** — 100 real-life scenarios + pronunciation coach
+- 🏥 **TCM Master** — classical diagnosis across 12 master physicians
+- 🇺🇸 **Citizenship Coach** — 128 USCIS questions, bilingual
+- 🇨🇳 **Chinese Tutor** — ABC kids edition · 25 scenarios + quiz
+- 🇪🇸 **Spanish Tutor** — fun bilingual Spanish for kids
+
 ### [localkin.dev](https://www.localkin.dev) — open source for developers
 
-The agent runtime that powers everything on localkin.ai, plus the open-source ecosystem and research papers documenting how it all works. Single 23 MB binary, zero cloud dependency, soul-file configured. See **Core Innovations** + **Ecosystem** below for the technical surface.
+The agent runtime that powers everything above, plus the open-source ecosystem and research papers documenting how it all works. Single 23 MB binary, zero cloud dependency, soul-file configured. See **Core Innovations** + **Ecosystem** below for the technical surface.
 
 ---
 
