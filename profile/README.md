@@ -2,13 +2,30 @@
   <h1>LocalKin — Private AI Agent Swarm on Your Machine</h1>
   <p>75+ specialized AI agents running on a single Mac Mini. Self-evolving. Zero cloud dependency.</p>
   <p>
-    <a href="https://www.localkin.dev">Website</a> · 
-    <a href="https://www.localkin.dev/papers">Research Papers</a> · 
+    <a href="https://www.localkin.ai"><b>localkin.ai</b> · apps</a> · 
+    <a href="https://www.localkin.dev"><b>localkin.dev</b> · for developers</a> · 
+    <a href="https://www.localkin.dev/papers">papers</a> · 
     <a href="https://youtube.com/@localkinai">YouTube</a> · 
     <a href="https://discord.gg/w8KGyBpc">Discord</a> · 
     <a href="https://x.com/LocalKinAI">𝕏 @LocalKinAI</a>
   </p>
 </div>
+
+---
+
+## Two surfaces
+
+### [localkin.ai](https://www.localkin.ai) — apps for everyone
+
+Direct chat with AI distilled from real human writings. Every answer grounded in actual source texts under enforced retrieval — zero hallucination.
+
+- **清晨甘露 · Morning Manna** — daily devotional reading + audio. Offline + background playback, lock-screen control, resumable across episodes.
+- **细拉 · Selah** — converse with **44 spiritual masters** spanning 19 centuries (Augustine, John Chrysostom, Brother Lawrence, Spurgeon, 倪柝声, 钟马田 …). Every reply cites the source work + page.
+- **岐黄 · Yellow Emperor's Way** — converse with **39 TCM masters** spanning 4,500 years (黄帝 → 当代国医大师). 498 books, 159 MB corpus, enforced citation.
+
+### [localkin.dev](https://www.localkin.dev) — open source for developers
+
+The agent runtime that powers everything on localkin.ai, plus the open-source ecosystem and research papers documenting how it all works. Single 23 MB binary, zero cloud dependency, soul-file configured. See **Core Innovations** + **Ecosystem** below for the technical surface.
 
 ---
 
