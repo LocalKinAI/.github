@@ -69,7 +69,11 @@ See the [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) paper f
 
 ## Domains
 
-Spiritual (8 masters) · Traditional Chinese Medicine (11 physicians) · Engineering · Quantitative Finance · Marketing · Product · Design · Game Dev · Spatial Computing · and more.
+**75+ specialized agents** across expert traditions, each grounded in real source texts:
+
+- **Spiritual** · 44 masters spanning 19 centuries → [faith.localkin.ai](https://faith.localkin.ai) (Augustine, John Chrysostom, Brother Lawrence, Spurgeon, 倪柝声, 钟马田 …)
+- **Traditional Chinese Medicine** · 39 masters spanning 4,500 years → [heal.localkin.ai](https://heal.localkin.ai) (黄帝 → 当代国医大师, 498 books / 159 MB corpus)
+- More domains in active development — engineering, quant finance, education, language tutoring, design, game dev, spatial computing, and growing.
 
 ## Research Papers
 
