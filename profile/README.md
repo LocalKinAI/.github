@@ -17,11 +17,11 @@
 
 ### [localkin.ai](https://www.localkin.ai) — apps for everyone
 
-Direct chat with AI distilled from real human writings. Every answer grounded in actual source texts under enforced retrieval — zero hallucination.
+Direct chat with AI distilled from real human writings. Every answer grounded in actual source texts under enforced retrieval — zero hallucination. Three standalone properties:
 
-- **清晨甘露 · Morning Manna** — daily devotional reading + audio. Offline + background playback, lock-screen control, resumable across episodes.
-- **细拉 · Selah** — converse with **44 spiritual masters** spanning 19 centuries (Augustine, John Chrysostom, Brother Lawrence, Spurgeon, 倪柝声, 钟马田 …). Every reply cites the source work + page.
-- **岐黄 · Yellow Emperor's Way** — converse with **39 TCM masters** spanning 4,500 years (黄帝 → 当代国医大师). 498 books, 159 MB corpus, enforced citation.
+- **[清晨甘露 · Morning Manna](https://www.localkin.ai)** — daily devotional reading + audio. Offline + background playback, lock-screen control, resumable across episodes.
+- **[细拉 · Selah](https://faith.localkin.ai)** — converse with **44 spiritual masters** spanning 19 centuries (Augustine, John Chrysostom, Brother Lawrence, Spurgeon, 倪柝声, 钟马田 …). Every reply cites the source work + page.
+- **[岐黄 · Yellow Emperor's Way](https://heal.localkin.ai)** — converse with **39 TCM masters** spanning 4,500 years (黄帝 → 当代国医大师). 498 books, 159 MB corpus, enforced citation.
 
 ### [localkin.dev](https://www.localkin.dev) — open source for developers
 
