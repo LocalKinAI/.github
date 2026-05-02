@@ -82,7 +82,7 @@ See the [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) paper f
 - [Genesis Protocol](https://www.localkin.dev/papers/genesis-protocol)
 - [Thin Soul, Fat Skill](https://www.localkin.dev/papers/thin-soul-fat-skill)
 - [Domain Expert Debate](https://www.localkin.dev/papers/domain-expert-debate)
-- [Grep Is All You Need](https://www.localkin.dev/papers/grep-is-all-you-need)
+- [Grep Is All You Need](https://www.localkin.dev/papers/grep-is-all-you-need) · [code](https://github.com/LocalKinAI/grep-is-all-you-need)
 - [Knowledge Compile](https://www.localkin.dev/papers/knowledge-compile)
 - [Autonomous Swarm Genesis](https://www.localkin.dev/papers/autonomous-swarm-genesis)
 - [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib)
