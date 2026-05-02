@@ -49,8 +49,8 @@ LocalKin is a Go-based AI agent runtime that orchestrates 75+ domain-expert agen
 
 | Project | Description | |
 |---------|-------------|-|
-| **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | 20K+ downloads |
-| **[localkin-service-audio](https://github.com/LocalKinAI/localkin-service-audio)** | High-performance local STT & TTS services | 10K+ downloads |
+| **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | [![Downloads](https://static.pepy.tech/badge/ollamadiffuser)](https://pepy.tech/projects/ollamadiffuser?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
+| **[localkin-service-audio](https://github.com/LocalKinAI/localkin-service-audio)** | High-performance local STT & TTS services | [![Downloads](https://static.pepy.tech/badge/localkin-service-audio)](https://pepy.tech/projects/localkin-service-audio?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
 | **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. | MIT · v1.8.0 |
 | **[kin-code](https://github.com/LocalKinAI/kin-code)** | AI coding assistant, 9MB single binary | MIT |
 
