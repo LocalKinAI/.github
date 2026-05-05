@@ -114,31 +114,53 @@ The libraries that power 4 of KinClaw's 5 claws. Each is independently usable in
 
 See the [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) paper for the distribution pattern these all share.
 
-### The 5th claw — `web` (URL-first, not GUI puppeteering)
+### The 5th claw — `web` (URL-first + Playwright fallback)
 
 The other 4 claws are macOS-bound. The web claw is **cross-platform** and arguably the most-used in real flows, because most modern productivity lives in browser tabs — Gmail, Linear, Notion, GitHub, Booking, Airbnb, Google Flights, the LocalKin family's own apps (`localkin.ai`, `faith.localkin.ai`, `heal.localkin.ai`, `api.localkin.dev`).
 
-KinClaw's web claw is **deliberately not** a Playwright headless-browser puppeteer. Pilot's `pilot.soul.md` ships an explicit **URL-first doctrine** as the most important operational rule:
+KinClaw's web claw runs in **two tiers**, picked by the agent based on what the task actually needs.
 
-> Tasks like "open X to state Y" — **think URL first**. One shell line or one web fetch beats clicking through a calendar picker / cookie banner / React SPA. GUI clicking is the fallback, not the default.
+#### Tier 1 · URL-first (default, ~80% of flows)
 
-What the web claw actually carries:
+Pilot's `pilot.soul.md` ships this as **the most important operational doctrine**:
+
+> Tasks like "open X to state Y" — **think URL first**. One shell line or one web fetch beats clicking through a calendar picker / cookie banner / React SPA.
 
 | Capability | What it does |
 |---|---|
-| **`shell open <URL>`** | Direct macOS URL-handler routing — `maps://`, `mailto:`, `music://`, `https://` — skip the app's onboarding, land at the destination state |
+| **`shell open <URL>`** | macOS URL-handler routing — `maps://`, `mailto:`, `music://`, `https://` — land at destination state without UI clicking |
 | **`web_fetch <URL>`** | Server-side fetch + HTML strip → clean text. No Chromium, no JS render, ~50ms |
 | **`web_search`** | DuckDuckGo (default) or [Tavily](https://tavily.com) (when `TAVILY_API_KEY` set) |
-| **14 baked-in URL templates** | Google Flights · Kayak · Skyscanner · Booking · Airbnb · Zillow · Maps · Amazon · YouTube · GitHub search · ArXiv · 12306 · Reddit · etc. — all in pilot.soul.md as canonical patterns |
+| **14 baked-in URL templates** | Google Flights · Kayak · Skyscanner · Booking · Airbnb · Zillow · Maps · Amazon · YouTube · GitHub search · ArXiv · 12306 · Reddit · etc. — canonical patterns hardcoded into the soul prompt |
 
 Why URL-first beats GUI puppeteering for an LLM agent:
 
 - **Calendar pickers** — clicking "previous month" 30 times to land on July is doomed. `?checkin=2025-07-08` lands instantly.
-- **Faceted filters** — Google Flights has roundtrip / cabin / passengers / time-of-day, all fragile to click. URL params take all 4 atomically.
-- **Cookie banners + "are you sure" modals** — a browser puppeteer hits all of them. URL → result page skips them entirely.
-- **Modern SPA accessibility gaps** — Google Flights' React tree has no AX labels in many places. URL params bypass the whole DOM.
+- **Faceted filters** — Google Flights has roundtrip / cabin / passengers / time-of-day. URL params take all 4 atomically.
+- **Cookie banners + modals** — URL → result page skips them entirely.
+- **Modern SPA accessibility gaps** — React trees often have no AX labels. URL params bypass the whole DOM.
 
-The strategic angle: **most LocalKin's own products ARE web** — Selah, Heal, Morning Manna, the 98-agent chat hub. So when Pilot drives a LocalKin user flow, the web claw is doing the lift. Future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits the web claw with zero rewrite — only the 4 macOS claws need platform-specific rebinding.
+#### Tier 2 · `web_browser` skill — Playwright when URL-first isn't enough
+
+For the ~20% of flows that genuinely need a real browser (auth-walled pages, JS-rendered content with no URL params, screenshot-of-rendered-DOM, "wait for X to appear"), KinClaw forges a [Playwright](https://playwright.dev) skill on demand and parks it under `~/.localkin/skills/web_browser/`. Invoked via the `spawn` skill or by Pilot directly.
+
+```
+web_browser <url> [--screenshot] [--wait N] [--selector CSS] [--text]
+```
+
+What it ships:
+
+- **Headless Chromium** (Playwright launches its own, not your system browser — no profile / cookie cross-contamination)
+- **Full-page screenshot** to disk → kinclaw's `/file` endpoint → renderable in any UI
+- **CSS selector extraction** — `--selector "h1.title" --text` returns clean innerText
+- **Page-text extraction** — script/style stripped, `<body>.innerText` saved to disk for follow-up reads
+- **Redirect tracking** — final URL reported so the agent knows it landed where it asked
+
+This is also a clean example of the **Genesis / forge pattern**: kinclaw's binary stays small (17 MB, no embedded Chromium), heavy capabilities are forged at runtime as `~/.localkin/skills/<name>/` directories with their own `package.json` + dependencies. Update Playwright? `npm install` in the skill's dir, no kernel rebuild.
+
+#### Strategic angle
+
+Most LocalKin's own products **are** web — Selah, Heal, Morning Manna, the 98-agent chat hub. When Pilot drives a LocalKin user flow, the web claw is doing the lift. Future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits **both tiers** with zero rewrite — only the 4 macOS claws need platform-specific rebinding. URL-first is shell-only (cross-platform); Playwright is Node.js (cross-platform). The web tier is what makes the Linux/Win story viable.
 
 ## Domains
 
