@@ -103,7 +103,7 @@ The KinClaw family fits in 4 layers — apps on top, raw macOS bindings at the b
 
 ### KinKit — pure-Go macOS bindings (zero cgo, embedded dylib, `go install`-able)
 
-The libraries that power KinClaw's claws. Each is independently usable in any Go project that needs to drive macOS at the framework level — no Xcode, no cgo, no Swift bridge.
+The libraries that power 4 of KinClaw's 5 claws. Each is independently usable in any Go project that needs to drive macOS at the framework level — no Xcode, no cgo, no Swift bridge.
 
 | Library | Description | |
 |---------|-------------|-|
@@ -113,6 +113,32 @@ The libraries that power KinClaw's claws. Each is independently usable in any Go
 | **[kinrec](https://github.com/LocalKinAI/kinrec)** | Screen + audio recorder · built on sckit-go · powers `record` claw | MIT |
 
 See the [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) paper for the distribution pattern these all share.
+
+### The 5th claw — `web` (URL-first, not GUI puppeteering)
+
+The other 4 claws are macOS-bound. The web claw is **cross-platform** and arguably the most-used in real flows, because most modern productivity lives in browser tabs — Gmail, Linear, Notion, GitHub, Booking, Airbnb, Google Flights, the LocalKin family's own apps (`localkin.ai`, `faith.localkin.ai`, `heal.localkin.ai`, `api.localkin.dev`).
+
+KinClaw's web claw is **deliberately not** a Playwright headless-browser puppeteer. Pilot's `pilot.soul.md` ships an explicit **URL-first doctrine** as the most important operational rule:
+
+> Tasks like "open X to state Y" — **think URL first**. One shell line or one web fetch beats clicking through a calendar picker / cookie banner / React SPA. GUI clicking is the fallback, not the default.
+
+What the web claw actually carries:
+
+| Capability | What it does |
+|---|---|
+| **`shell open <URL>`** | Direct macOS URL-handler routing — `maps://`, `mailto:`, `music://`, `https://` — skip the app's onboarding, land at the destination state |
+| **`web_fetch <URL>`** | Server-side fetch + HTML strip → clean text. No Chromium, no JS render, ~50ms |
+| **`web_search`** | DuckDuckGo (default) or [Tavily](https://tavily.com) (when `TAVILY_API_KEY` set) |
+| **14 baked-in URL templates** | Google Flights · Kayak · Skyscanner · Booking · Airbnb · Zillow · Maps · Amazon · YouTube · GitHub search · ArXiv · 12306 · Reddit · etc. — all in pilot.soul.md as canonical patterns |
+
+Why URL-first beats GUI puppeteering for an LLM agent:
+
+- **Calendar pickers** — clicking "previous month" 30 times to land on July is doomed. `?checkin=2025-07-08` lands instantly.
+- **Faceted filters** — Google Flights has roundtrip / cabin / passengers / time-of-day, all fragile to click. URL params take all 4 atomically.
+- **Cookie banners + "are you sure" modals** — a browser puppeteer hits all of them. URL → result page skips them entirely.
+- **Modern SPA accessibility gaps** — Google Flights' React tree has no AX labels in many places. URL params bypass the whole DOM.
+
+The strategic angle: **most LocalKin's own products ARE web** — Selah, Heal, Morning Manna, the 98-agent chat hub. So when Pilot drives a LocalKin user flow, the web claw is doing the lift. Future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits the web claw with zero rewrite — only the 4 macOS claws need platform-specific rebinding.
 
 ## Domains
 
