@@ -114,53 +114,68 @@ The libraries that power 4 of KinClaw's 5 claws. Each is independently usable in
 
 See the [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) paper for the distribution pattern these all share.
 
-### The 5th claw — `web` (URL-first + Playwright fallback)
+### The 5th claw — `web` (3-tier, cost-aware)
 
 The other 4 claws are macOS-bound. The web claw is **cross-platform** and arguably the most-used in real flows, because most modern productivity lives in browser tabs — Gmail, Linear, Notion, GitHub, Booking, Airbnb, Google Flights, the LocalKin family's own apps (`localkin.ai`, `faith.localkin.ai`, `heal.localkin.ai`, `api.localkin.dev`).
 
-KinClaw's web claw runs in **two tiers**, picked by the agent based on what the task actually needs.
+KinClaw's web claw is **3 tiers, picked by Pilot based on what the task actually needs** — cheap-and-fast first, expensive-and-flexible only when nothing else works:
 
-#### Tier 1 · URL-first (default, ~80% of flows)
+#### Tier 0 · URL-first (~50ms, no startup cost)
 
-Pilot's `pilot.soul.md` ships this as **the most important operational doctrine**:
-
-> Tasks like "open X to state Y" — **think URL first**. One shell line or one web fetch beats clicking through a calendar picker / cookie banner / React SPA.
+The most important operational doctrine in `pilot.soul.md` — go straight to result URLs, skip GUI clicking entirely. Covers ~80% of real flows.
 
 | Capability | What it does |
 |---|---|
-| **`shell open <URL>`** | macOS URL-handler routing — `maps://`, `mailto:`, `music://`, `https://` — land at destination state without UI clicking |
-| **`web_fetch <URL>`** | Server-side fetch + HTML strip → clean text. No Chromium, no JS render, ~50ms |
+| **`shell open <URL>`** | macOS URL-handler routing — `maps://`, `mailto:`, `music://`, `https://` — land at destination state without any clicking |
+| **`web_fetch <URL>`** | Server-side fetch + HTML strip → clean text, no Chromium, no JS render |
 | **`web_search`** | DuckDuckGo (default) or [Tavily](https://tavily.com) (when `TAVILY_API_KEY` set) |
-| **14 baked-in URL templates** | Google Flights · Kayak · Skyscanner · Booking · Airbnb · Zillow · Maps · Amazon · YouTube · GitHub search · ArXiv · 12306 · Reddit · etc. — canonical patterns hardcoded into the soul prompt |
+| **14 baked-in URL templates** | Google Flights · Kayak · Skyscanner · Booking · Airbnb · Zillow · Maps · Amazon · YouTube · GitHub search · ArXiv · 12306 · Reddit · etc. — canonical patterns in the soul prompt so Pilot knows the deep-link grammar of every popular site |
 
-Why URL-first beats GUI puppeteering for an LLM agent:
+Why this beats GUI puppeteering for an LLM agent: calendar pickers (clicking "previous month" 30 times to land on July is doomed; `?checkin=2025-07-08` lands instantly), faceted filters (URL params take 4 dimensions atomically), cookie banners + modals (skipped entirely), SPA accessibility gaps (React tree without AX labels — URL bypasses the DOM).
 
-- **Calendar pickers** — clicking "previous month" 30 times to land on July is doomed. `?checkin=2025-07-08` lands instantly.
-- **Faceted filters** — Google Flights has roundtrip / cabin / passengers / time-of-day. URL params take all 4 atomically.
-- **Cookie banners + modals** — URL → result page skips them entirely.
-- **Modern SPA accessibility gaps** — React trees often have no AX labels. URL params bypass the whole DOM.
+#### Tier 1 · `web` skill (~3s cold start, single-step Playwright)
 
-#### Tier 2 · `web_browser` skill — Playwright when URL-first isn't enough
-
-For the ~20% of flows that genuinely need a real browser (auth-walled pages, JS-rendered content with no URL params, screenshot-of-rendered-DOM, "wait for X to appear"), KinClaw forges a [Playwright](https://playwright.dev) skill on demand and parks it under `~/.localkin/skills/web_browser/`. Invoked via the `spawn` skill or by Pilot directly.
+When URL-first can't reach (page needs JS to render, content lives behind a click, you need a screenshot of the rendered DOM), Pilot drops to the `web` skill — a Playwright-driven single-shot.
 
 ```
-web_browser <url> [--screenshot] [--wait N] [--selector CSS] [--text]
+web url=X
+web url=X click=".btn" type_text="hello"
+web url=X js="document.body.innerText"
+web url=X screenshot=true
 ```
 
-What it ships:
+One call = one Playwright session, ~3s cold start, returns immediately. For 99% of one-off web tasks: scrape a page, run a snippet of JS, fill+submit a form, grab a screenshot.
 
-- **Headless Chromium** (Playwright launches its own, not your system browser — no profile / cookie cross-contamination)
-- **Full-page screenshot** to disk → kinclaw's `/file` endpoint → renderable in any UI
-- **CSS selector extraction** — `--selector "h1.title" --text` returns clean innerText
-- **Page-text extraction** — script/style stripped, `<body>.innerText` saved to disk for follow-up reads
-- **Redirect tracking** — final URL reported so the agent knows it landed where it asked
+#### Tier 2 · `browser_session` super-skill (~10-20s warmup, multi-step)
 
-This is also a clean example of the **Genesis / forge pattern**: kinclaw's binary stays small (17 MB, no embedded Chromium), heavy capabilities are forged at runtime as `~/.localkin/skills/<name>/` directories with their own `package.json` + dependencies. Update Playwright? `npm install` in the skill's dir, no kernel rebuild.
+For genuinely complex flows — login + navigate + extract, fill + submit + verify, search + sort + dig three pages deep — KinClaw wraps [**browser-use**](https://github.com/browser-use/browser-use) (the 91K★ OSS that is the de-facto LLM-driven browser agent library) as a single-argument super-skill:
+
+```
+browser_session task="登录 GitHub 找我未读 PR"
+browser_session task="去 weather.com 输 zip code 95014 拿一周预报表"
+browser_session task="open my Linear, find tickets assigned to me this week, summarize"
+```
+
+What you get under the hood:
+- **Persistent session** — login state, cookies, localStorage all survive across steps
+- **DOM element numbering** — browser-use auto-numbers every interactive element so the LLM can refer to "click element 17" instead of fragile CSS selectors
+- **Visual reasoning** — screenshot + numbered elements fed back to the planning LLM each step
+- **Cross-page flows** — natural to chain login → navigate → extract; the inner LLM plans steps, you just give it the goal
+
+**Trigger rule** (from `pilot.soul.md`): the task description has 2+ interaction verbs (login + navigate + extract / fill + submit + verify / search + sort + dig).
+
+| Task | Tier picked |
+|---|---|
+| "查 hacker news 头条" | `web_fetch` (Tier 0) |
+| "抓 example.com 的 H1" | `web` (Tier 1) |
+| "登录 github 找我未读 PR" | `browser_session` (Tier 2 — login is the multi-step signal) |
+| "去 weather.com 输 zip code 拿一周预报" | `browser_session` (Tier 2 — multi-step interaction) |
+
+**Cost-aware**: `browser_session` burns LLM tokens per planning step (~$0.05–0.15 Claude per 5-step task). Pilot's soul says explicitly: **don't reach for `browser_session` when `web` would do**. The tier system isn't just capability — it's economics.
 
 #### Strategic angle
 
-Most LocalKin's own products **are** web — Selah, Heal, Morning Manna, the 98-agent chat hub. When Pilot drives a LocalKin user flow, the web claw is doing the lift. Future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits **both tiers** with zero rewrite — only the 4 macOS claws need platform-specific rebinding. URL-first is shell-only (cross-platform); Playwright is Node.js (cross-platform). The web tier is what makes the Linux/Win story viable.
+Most LocalKin's own products **are** web — Selah, Heal, Morning Manna, the 98-agent chat hub. When Pilot drives a LocalKin user flow, the web claw is doing the lift. All three tiers are **cross-platform** (shell + Node.js, no macOS framework dependencies) — future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits the whole web stack with zero rewrite. Only the 4 macOS-bound claws need platform-specific rebinding. **The web tier is what makes the Linux/Win story viable.**
 
 ## Domains
 
