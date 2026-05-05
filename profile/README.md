@@ -61,6 +61,38 @@ LocalKin is a Go-based AI agent runtime that orchestrates 75+ domain-expert agen
 
 ## Ecosystem
 
+The KinClaw family fits in 4 layers — apps on top, raw macOS bindings at the bottom, kernels in the middle, and a single Mac shell binding it all together. **Same SSE event protocol + same `.soul.md` format across every kernel** — one client codebase drives the whole stack, future Linux/Windows shells reuse it without changes.
+
+```
+┌───────────────────────────────────────────────────────────────┐
+│  LAYER 4 — apps + chat hub                                     │
+│  localkin.ai (Selah · Heal · Manna)   api.localkin.dev (98)   │
+└──────────────────────────┬────────────────────────────────────┘
+                           │
+┌──────────────────────────▼────────────────────────────────────┐
+│  LAYER 3 — desktop shell  (Apache-2.0)                         │
+│                                                               │
+│   ⌘⌥K  ┌──────────────────────────────────┐                  │
+│        │  kinclaw-mac v0.2.0  (SwiftUI)   │                  │
+│        │  Chat ┊ Cowork ┊ Code            │                  │
+│        └────────┬───────────┬─────────────┘                  │
+└─────────────────┼───────────┼────────────────────────────────┘
+                  │           │
+        ┌─────────▼──┐  ┌─────▼──────┐
+        │ :5001      │  │ :5002      │
+        │ kinclaw    │  │ kincode    │   LAYER 2 — kernels
+        │ v1.11.0    │  │ v0.7.1     │   (Apache-2.0 / MIT)
+        │ 5 claws    │  │ 10 tools   │
+        └────────┬───┘  └────────────┘
+                 │
+┌────────────────▼──────────────────────────────────────────────┐
+│  LAYER 1 — Pure-Go macOS bindings  (KinKit, MIT)               │
+│  sckit-go · kinax-go · input-go · kinrec                      │
+└───────────────────────────────────────────────────────────────┘
+```
+
+**Repos:**
+
 | Project | Description | |
 |---------|-------------|-|
 | **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | [![Downloads](https://static.pepy.tech/badge/ollamadiffuser)](https://pepy.tech/projects/ollamadiffuser?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
