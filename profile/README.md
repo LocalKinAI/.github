@@ -65,8 +65,9 @@ LocalKin is a Go-based AI agent runtime that orchestrates 75+ domain-expert agen
 |---------|-------------|-|
 | **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | [![Downloads](https://static.pepy.tech/badge/ollamadiffuser)](https://pepy.tech/projects/ollamadiffuser?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
 | **[localkin-service-audio](https://github.com/LocalKinAI/localkin-service-audio)** | High-performance local STT & TTS services | [![Downloads](https://static.pepy.tech/badge/localkin-service-audio)](https://pepy.tech/projects/localkin-service-audio?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
-| **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. | MIT · v1.8.0 |
-| **[kin-code](https://github.com/LocalKinAI/kin-code)** | AI coding assistant, 9MB single binary | MIT |
+| **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. | Apache-2.0 · v1.11.0 |
+| **[kinclaw-mac](https://github.com/LocalKinAI/kinclaw-mac)** | Native macOS Spotlight shell for the kernel family. ⌘⌥K → Chat (98 cloud agents) · Cowork (kinclaw 5 claws) · Code (kincode + repo). | Apache-2.0 · v0.2.0 |
+| **[kincode](https://github.com/LocalKinAI/kincode)** | AI coding assistant, 10MB single binary. HTTP+SSE server mode for desktop shells. | MIT · v0.7.1 |
 
 ### KinKit — pure-Go macOS bindings (zero cgo, embedded dylib, `go install`-able)
 
