@@ -73,7 +73,7 @@ The KinClaw family fits in 4 layers — apps on top, raw macOS bindings at the b
 │  LAYER 3 — desktop shell  (Apache-2.0)                         │
 │                                                               │
 │   ⌘⌥K  ┌──────────────────────────────────┐                  │
-│        │  kinclaw-mac v0.2.0  (SwiftUI)   │                  │
+│        │  kinclaw-mac v0.4.1  (SwiftUI)   │                  │
 │        │  Chat ┊ Cowork ┊ Code            │                  │
 │        └────────┬───────────┬─────────────┘                  │
 └─────────────────┼───────────┼────────────────────────────────┘
@@ -81,7 +81,7 @@ The KinClaw family fits in 4 layers — apps on top, raw macOS bindings at the b
         ┌─────────▼──┐  ┌─────▼──────┐
         │ :5001      │  │ :5002      │
         │ kinclaw    │  │ kincode    │   LAYER 2 — kernels
-        │ v1.11.0    │  │ v0.7.1     │   (Apache-2.0 / MIT)
+        │ v1.15.0    │  │ v0.10.0    │   (Apache-2.0 / MIT)
         │ 5 claws    │  │ 10 tools   │
         └────────┬───┘  └────────────┘
                  │
@@ -97,9 +97,10 @@ The KinClaw family fits in 4 layers — apps on top, raw macOS bindings at the b
 |---------|-------------|-|
 | **[ollamadiffuser](https://github.com/LocalKinAI/ollamadiffuser)** | Local AI image generation, zero cloud dependency | [![Downloads](https://static.pepy.tech/badge/ollamadiffuser)](https://pepy.tech/projects/ollamadiffuser?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
 | **[localkin-service-audio](https://github.com/LocalKinAI/localkin-service-audio)** | High-performance local STT & TTS services | [![Downloads](https://static.pepy.tech/badge/localkin-service-audio)](https://pepy.tech/projects/localkin-service-audio?timeRange=threeMonths&category=version&includeCIDownloads=true&granularity=daily&viewType=line&versions=Total%2C2.*%2C1.*) |
-| **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. | Apache-2.0 · v1.11.0 |
-| **[kinclaw-mac](https://github.com/LocalKinAI/kinclaw-mac)** | Native macOS Spotlight shell for the kernel family. ⌘⌥K → Chat (98 cloud agents) · Cowork (kinclaw 5 claws) · Code (kincode + repo). | Apache-2.0 · v0.2.0 |
-| **[kincode](https://github.com/LocalKinAI/kincode)** | AI coding assistant, 10MB single binary. HTTP+SSE server mode for desktop shells. | MIT · v0.7.1 |
+| **[kinclaw](https://github.com/LocalKinAI/kinclaw)** | macOS computer-use agent — 5 claws + floating chat UI + voice. Agent operates your real Mac. **67.3% on macbench v0.1** (first reference run, 2026-05-08). | Apache-2.0 · v1.15.0 |
+| **[kinclaw-mac](https://github.com/LocalKinAI/kinclaw-mac)** | Native macOS Spotlight shell for the kernel family. ⌘⌥K → Chat (98 cloud agents) · Cowork (kinclaw 5 claws) · Code (kincode + repo). | Apache-2.0 · v0.4.1 |
+| **[kincode](https://github.com/LocalKinAI/kincode)** | AI coding assistant, 10MB single binary. HTTP+SSE server mode for desktop shells. | MIT · v0.10.0 |
+| **[macbench](https://github.com/LocalKinAI/macbench)** | **First publicly published macOS-native computer-use benchmark.** 369 task slots, 15 categories, agent-agnostic Go runner. Inspired by OSWorld; adapted for the macOS app surface OSWorld can't reach. | MIT · v0.1.0 |
 
 ### KinKit — pure-Go macOS bindings (zero cgo, embedded dylib, `go install`-able)
 
@@ -176,6 +177,23 @@ What you get under the hood:
 #### Strategic angle
 
 Most LocalKin's own products **are** web — Selah, Heal, Morning Manna, the 98-agent chat hub. When Pilot drives a LocalKin user flow, the web claw is doing the lift. All three tiers are **cross-platform** (shell + Node.js, no macOS framework dependencies) — future [`kinclaw-pal`](https://github.com/LocalKinAI/kinclaw-mac/blob/main/CHANGELOG.md) (Linux/Windows shell) inherits the whole web stack with zero rewrite. Only the 4 macOS-bound claws need platform-specific rebinding. **The web tier is what makes the Linux/Win story viable.**
+
+## Public benchmarks
+
+### [macbench](https://github.com/LocalKinAI/macbench) — first publicly published macOS-native computer-use benchmark
+
+```
+First reference run (2026-05-08):
+  kinclaw v1.15.0 + Kimi-K2.5(cloud) on macbench v0.1
+    IMPLEMENTED:  101 / 150  =  67.3%
+    STRICT:       101 / 369  =  27.4%   (stubs count as fail)
+```
+
+For context, [Anthropic Computer Use](https://www.anthropic.com/news/3-5-models-and-computer-use) scores **~38%** on [OSWorld](https://os-world.github.io) (Linux desktop). macbench measures a different surface (macOS native), so the numbers aren't directly comparable, but the methodology + scoring discipline are the same.
+
+[`xlang-ai/OSWorld`](https://github.com/xlang-ai/OSWorld) (NeurIPS 2024) became the de-facto standard for desktop computer-use agents — but it benchmarks inside an Ubuntu/Windows VM. Nobody had published a comparable benchmark for macOS native apps. macbench fills that gap with **369 task slots** across 15 macOS app categories (Finder · Safari · Mail · Notes · Calendar · Reminders · Settings · Terminal · Pages · Numbers · Keynote · Music · Photos · Maps · multi-app), an **agent-agnostic Go runner** (any binary that takes a prompt + drives macOS plugs in via `-agent` + `-agent-args` template), and **per-task PID-snapshot isolation** that preserves any pre-existing user app state.
+
+v0.1 ships 150 implemented + 219 stubs (real prompts, no setup/eval scripts yet); fill rate over v0.2 → v1.0 is roughly 30-50 stubs/month. License MIT.
 
 ## Domains
 
