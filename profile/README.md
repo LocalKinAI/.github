@@ -205,15 +205,21 @@ v0.1 ships 150 implemented + 219 stubs (real prompts, no setup/eval scripts yet)
 
 ## Research Papers
 
-- [Self-Evolving Swarms](https://www.localkin.dev/papers/self-evolving-swarms)
-- [Zero-Token Heartbeat](https://www.localkin.dev/papers/heart-zero-token)
-- [Genesis Protocol](https://www.localkin.dev/papers/genesis-protocol)
-- [Thin Soul, Fat Skill](https://www.localkin.dev/papers/thin-soul-fat-skill)
-- [Domain Expert Debate](https://www.localkin.dev/papers/domain-expert-debate)
-- [Grep Is All You Need](https://www.localkin.dev/papers/grep-is-all-you-need) · [code](https://github.com/LocalKinAI/grep-is-all-you-need)
-- [Knowledge Compile](https://www.localkin.dev/papers/knowledge-compile)
-- [Autonomous Swarm Genesis](https://www.localkin.dev/papers/autonomous-swarm-genesis)
-- [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib)
+All 10 papers are on Zenodo with permanent DOIs (CC-BY-4.0) and
+mirrored bilingually (EN+中文) at [localkin.dev/papers](https://www.localkin.dev/papers).
+
+| # | Title | DOI |
+|---|---|---|
+| 1 | [Self-Evolving Swarms](https://www.localkin.dev/papers/self-evolving-swarms) | [10.5281/zenodo.20094224](https://doi.org/10.5281/zenodo.20094224) |
+| 2 | [Zero-Token Heartbeat](https://www.localkin.dev/papers/heart-zero-token) | [10.5281/zenodo.20094226](https://doi.org/10.5281/zenodo.20094226) |
+| 3 | [Genesis Protocol](https://www.localkin.dev/papers/genesis-protocol) | [10.5281/zenodo.20094231](https://doi.org/10.5281/zenodo.20094231) |
+| 4 | [Grep Is All You Need](https://www.localkin.dev/papers/grep-is-all-you-need) · [code](https://github.com/LocalKinAI/grep-is-all-you-need) | [10.5281/zenodo.19777260](https://doi.org/10.5281/zenodo.19777260) |
+| 5 | [Thin Soul, Fat Skill](https://www.localkin.dev/papers/thin-soul-fat-skill) | [10.5281/zenodo.20094233](https://doi.org/10.5281/zenodo.20094233) |
+| 6 | [Domain Expert Debate](https://www.localkin.dev/papers/domain-expert-debate) | [10.5281/zenodo.20094237](https://doi.org/10.5281/zenodo.20094237) |
+| 7 | [Knowledge Compile](https://www.localkin.dev/papers/knowledge-compile) | [10.5281/zenodo.20094239](https://doi.org/10.5281/zenodo.20094239) |
+| 8 | [Autonomous Swarm Genesis](https://www.localkin.dev/papers/autonomous-swarm-genesis) | [10.5281/zenodo.20094241](https://doi.org/10.5281/zenodo.20094241) |
+| 9 | [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) · [code](https://github.com/LocalKinAI/sckit-go) | [10.5281/zenodo.20094243](https://doi.org/10.5281/zenodo.20094243) |
+| 10 | [macbench](https://www.localkin.dev/papers/macbench) · [code](https://github.com/LocalKinAI/macbench) | [10.5281/zenodo.20094245](https://doi.org/10.5281/zenodo.20094245) |
 
 ## Contact
 
