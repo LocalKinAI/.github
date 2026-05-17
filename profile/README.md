@@ -206,7 +206,7 @@ v0.1 ships 150 implemented + 219 stubs (real prompts, no setup/eval scripts yet)
 
 ## Research Papers
 
-All 10 papers are on Zenodo with permanent **concept DOIs** (CC-BY-4.0).
+All 11 papers are on Zenodo with permanent **concept DOIs** (CC-BY-4.0).
 Each PDF bundles EN + 中文 in a single document, generated directly
 from the canonical Markdown source. Concept DOIs auto-resolve to the
 latest version, so citations stay correct across revisions.
@@ -223,6 +223,7 @@ latest version, so citations stay correct across revisions.
 | 8 | [Autonomous Swarm Genesis](https://www.localkin.dev/papers/autonomous-swarm-genesis) | [10.5281/zenodo.20094240](https://doi.org/10.5281/zenodo.20094240) |
 | 9 | [Embedded Dylib](https://www.localkin.dev/papers/embedded-dylib) · [code](https://github.com/LocalKinAI/sckit-go) | [10.5281/zenodo.20094242](https://doi.org/10.5281/zenodo.20094242) |
 | 10 | [macbench](https://www.localkin.dev/papers/macbench) · [code](https://github.com/LocalKinAI/macbench) | [10.5281/zenodo.20094244](https://doi.org/10.5281/zenodo.20094244) |
+| 11 | [Grep-Routed Agents: Bypassing the LLM Tax on Computer-Use Tasks](https://www.localkin.dev/papers/grep-routed-agents) | [10.5281/zenodo.20131046](https://doi.org/10.5281/zenodo.20131046) |
 
 ## Contact
 
